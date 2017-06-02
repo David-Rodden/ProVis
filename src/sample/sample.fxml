@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="641.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <VBox layoutX="112.0" layoutY="97.0" prefHeight="262.0" prefWidth="100.0">
+         <children>
+            <Label contentDisplay="TOP" style="-fx-font-size: 20;" text="Stack" />
+            <VBox fx:id="stack" prefHeight="284.0" prefWidth="149.0" style="-fx-border-color: black; -fx-background-color: lightgrey;" />
+         </children>
+      </VBox>
+      <VBox layoutX="386.0" layoutY="56.0" prefHeight="343.0" prefWidth="145.0">
+         <children>
+            <Label style="-fx-font-size: 20;" text="Heap" />
+            <VBox fx:id="heap" prefHeight="284.0" prefWidth="149.0" style="-fx-border-color: black; -fx-background-color: lightgrey;" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
