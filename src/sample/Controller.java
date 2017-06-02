@@ -10,6 +10,8 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     @FXML
+    private VBox programBox;
+    @FXML
     private VBox stackBox;
     @FXML
     private VBox heapBox;
@@ -19,6 +21,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        new VProgram(programBox, "test.txt");
         stack = new VStack(stackBox);
         heap = new VHeap(heapBox);
         stack.push("ref: abc_int");

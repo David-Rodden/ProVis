@@ -6,9 +6,19 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="641.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <VBox layoutX="68.0" layoutY="44.0" prefHeight="321.0" prefWidth="166.0">
+      <VBox layoutX="46.0" layoutY="40.0" prefHeight="321.0" prefWidth="236.0">
+         <children>
+            <Label contentDisplay="TOP" style="-fx-font-size: 20;" text="Program" />
+            <ScrollPane prefHeight="290.0" prefViewportHeight="232.0" prefViewportWidth="100.0" prefWidth="173.0">
+               <content>
+                  <VBox fx:id="programBox" prefHeight="284.0" prefWidth="217.0" style="-fx-border-color: black; -fx-background-color: lightgrey;" />
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+      <VBox layoutX="320.0" layoutY="40.0" prefHeight="321.0" prefWidth="166.0">
          <children>
             <Label contentDisplay="TOP" style="-fx-font-size: 20;" text="Stack" />
             <ScrollPane prefHeight="290.0" prefViewportHeight="232.0" prefViewportWidth="100.0" prefWidth="173.0">
@@ -18,7 +28,7 @@
             </ScrollPane>
          </children>
       </VBox>
-      <VBox layoutX="363.0" layoutY="33.0" prefHeight="375.0" prefWidth="166.0">
+      <VBox layoutX="532.0" layoutY="40.0" prefHeight="375.0" prefWidth="166.0">
          <children>
             <Label style="-fx-font-size: 20;" text="Heap" />
             <ScrollPane prefHeight="286.0" prefViewportHeight="284.0" prefViewportWidth="198.0" prefWidth="174.0">
