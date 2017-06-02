@@ -14,15 +14,22 @@ public class Controller implements Initializable {
     @FXML
     private VBox heapBox;
 
-    private VMemory stack, heap;
+    private VStack stack;
+    private VHeap heap;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        stack = new VMemory(stackBox);
-        heap = new VMemory(heapBox, 50);
+        stack = new VStack(stackBox);
+        heap = new VHeap(heapBox);
         stack.push("ref: abc_int");
         stack.push("ref: abc2_String");
         stack.pop();
         stack.push("ref: abc2_char");
+        heap.alloc("one");
+        heap.alloc("two");
+        heap.alloc("three");
+        heap.alloc("four");
+        heap.alloc("five");
+        heap.alloc("six");
     }
 }
