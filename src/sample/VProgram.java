@@ -13,12 +13,18 @@ import java.util.stream.Collectors;
  */
 public class VProgram {
     private final VBox box;
+    private int focused;
+    private String focusedStyle, unfocusedStyle;
 
-    public VProgram(final VBox box, final String path) {
+    public VProgram(final Label programLabel, final VBox box, final String path) {
+        focused = 0;
+        focusedStyle = "-fx-border-color: red; -fx-background-color: #f2d6a9";
+        unfocusedStyle = "-fx-border-color: black; -fx-background-color: #f2d6a9";
+        programLabel.setText(String.format("%s - %s", programLabel.getText(), path));
         try {
             Files.readAllLines(Paths.get("src/input/" + path)).stream().filter(s -> !s.isEmpty()).collect(Collectors.toList()).forEach(l -> {
                 final Label label = new Label(l);
-                label.setStyle("-fx-border-color: black; -fx-background-color: #f2d6a9");
+                label.setStyle(box.getChildren().size() == 0 ? focusedStyle : unfocusedStyle);
                 label.prefWidthProperty().bind(box.prefWidthProperty());
                 box.getChildren().add(label);
             });
@@ -26,5 +32,11 @@ public class VProgram {
             e.printStackTrace();
         }
         this.box = box;
+    }
+
+    public void step() {
+        if (focused + 1 >= box.getChildren().size()) return;
+        box.getChildren().get(focused++).setStyle(unfocusedStyle);
+        box.getChildren().get(focused).setStyle(focusedStyle);
     }
 }

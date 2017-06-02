@@ -2,6 +2,7 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
@@ -12,6 +13,8 @@ public class Controller implements Initializable {
     @FXML
     private VBox programBox;
     @FXML
+    private Label programLabel;
+    @FXML
     private VBox stackBox;
     @FXML
     private VBox heapBox;
@@ -21,7 +24,8 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        new VProgram(programBox, "test.txt");
+        final VProgram program = new VProgram(programLabel, programBox, "test.txt");
+        program.step();
         stack = new VStack(stackBox);
         heap = new VHeap(heapBox);
         stack.push("ref: abc_int");

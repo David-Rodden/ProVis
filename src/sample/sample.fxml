@@ -10,7 +10,7 @@
    <children>
       <VBox layoutX="46.0" layoutY="40.0" prefHeight="321.0" prefWidth="236.0">
          <children>
-            <Label contentDisplay="TOP" style="-fx-font-size: 20;" text="Program" />
+            <Label fx:id="programLabel" contentDisplay="TOP" style="-fx-font-size: 20;" text="Program" />
             <ScrollPane prefHeight="290.0" prefViewportHeight="232.0" prefViewportWidth="100.0" prefWidth="173.0">
                <content>
                   <VBox fx:id="programBox" prefHeight="284.0" prefWidth="217.0" style="-fx-border-color: black; -fx-background-color: lightgrey;" />
