@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
@@ -16,8 +17,9 @@ public class VProgram {
     private int focused;
     private String focusedStyle, unfocusedStyle;
 
-    public VProgram(final Label programLabel, final VBox box, final String path) {
+    public VProgram(final Label programLabel, final VBox box, final Button next, final String path) {
         focused = 0;
+        next.setOnMouseClicked(e -> step());
         focusedStyle = "-fx-border-color: red; -fx-background-color: #f2d6a9";
         unfocusedStyle = "-fx-border-color: black; -fx-background-color: #f2d6a9";
         programLabel.setText(String.format("%s - %s", programLabel.getText(), path));
