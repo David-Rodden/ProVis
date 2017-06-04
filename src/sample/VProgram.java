@@ -3,6 +3,8 @@ package sample;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Path;
+import memory.Memory;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -13,12 +15,14 @@ import java.util.stream.Collectors;
  * Created by David on 6/2/2017.
  */
 public class VProgram {
+    private final Memory memory;
     private final VBox box;
     private int focused;
     private String focusedStyle, unfocusedStyle;
 
-    public VProgram(final Label programLabel, final VBox box, final Button next, final String path) {
+    public VProgram(final Label programLabel, final VBox box, final VBox stack, final VBox heap, final Path refPath, final Button next, final String path) {
         focused = 0;
+        memory = new Memory(stack, heap, refPath);
         next.setOnMouseClicked(e -> step());
         focusedStyle = "-fx-border-color: red; -fx-background-color: #f2d6a9";
         unfocusedStyle = "-fx-border-color: black; -fx-background-color: #f2d6a9";
@@ -34,11 +38,18 @@ public class VProgram {
             e.printStackTrace();
         }
         this.box = box;
+        readInput();
     }
 
     public void step() {
         if (focused + 1 >= box.getChildren().size()) return;
         box.getChildren().get(focused++).setStyle(unfocusedStyle);
+        readInput();
         box.getChildren().get(focused).setStyle(focusedStyle);
+    }
+
+    private void readInput() {
+        final String[] input = ((Label) box.getChildren().get(focused)).getText().split("\\s");
+        memory.addData("ref: " + input[1]);
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -22,9 +23,9 @@
             </ScrollPane>
          </children>
       </VBox>
-      <VBox layoutX="320.0" layoutY="40.0" prefHeight="321.0" prefWidth="166.0">
+      <VBox fx:id="stackContainer" layoutX="320.0" layoutY="40.0" prefHeight="321.0" prefWidth="166.0">
          <children>
-            <Label contentDisplay="TOP" style="-fx-font-size: 20;" text="Stack" />
+            <Label fx:id="stackLabel" contentDisplay="TOP" style="-fx-font-size: 20;" text="Stack" />
             <ScrollPane prefHeight="290.0" prefViewportHeight="232.0" prefViewportWidth="100.0" prefWidth="173.0">
                <content>
                   <VBox fx:id="stackBox" alignment="BOTTOM_LEFT" prefHeight="284.0" prefWidth="149.0" style="-fx-border-color: black; -fx-background-color: lightgrey;" />
@@ -32,9 +33,9 @@
             </ScrollPane>
          </children>
       </VBox>
-      <VBox layoutX="532.0" layoutY="40.0" prefHeight="375.0" prefWidth="166.0">
+      <VBox fx:id="heapContainer" layoutX="532.0" layoutY="40.0" prefHeight="375.0" prefWidth="166.0">
          <children>
-            <Label style="-fx-font-size: 20;" text="Heap" />
+            <Label fx:id="heapLabel" style="-fx-font-size: 20;" text="Heap" />
             <ScrollPane prefHeight="286.0" prefViewportHeight="284.0" prefViewportWidth="198.0" prefWidth="174.0">
                <content>
                   <VBox fx:id="heapBox" prefHeight="284.0" prefWidth="149.0" style="-fx-border-color: black; -fx-background-color: lightgrey;" />
@@ -47,5 +48,6 @@
             <Font name="Book Antiqua Bold" size="15.0" />
          </font>
       </Button>
+      <Path fx:id="refPath" fill="#1f93ff00" stroke="RED" strokeLineCap="ROUND" strokeWidth="2.0" />
    </children>
 </AnchorPane>
