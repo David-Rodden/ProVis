@@ -6,9 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Path;
-import memory.Memory;
-import memory.VHeap;
-import memory.VStack;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,10 +30,12 @@ public class Controller implements Initializable {
     @FXML
     private Button stepButton;
     @FXML
+    private Label stepNotifier;
+    @FXML
     private Path refPath;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        new VProgram(programLabel, programBox, stackBox, heapBox, refPath, stepButton, "test.txt");
+        new VProgram(programLabel, programBox, stackBox, heapBox, refPath, stepButton, stepNotifier, "test.txt");
     }
 }

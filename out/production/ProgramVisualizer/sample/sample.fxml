@@ -49,5 +49,6 @@
          </font>
       </Button>
       <Path fx:id="refPath" fill="#1f93ff00" stroke="RED" strokeLineCap="ROUND" strokeWidth="2.0" />
+      <Label fx:id="stepNotifier" layoutX="150.0" layoutY="425.0" text="Error" textFill="RED" visible="false" />
    </children>
 </AnchorPane>
