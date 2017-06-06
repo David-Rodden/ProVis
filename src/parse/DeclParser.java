@@ -7,17 +7,28 @@ import memory.Memory;
  */
 public class DeclParser {
     private final Memory memory;
+    private int depth;
 
     public DeclParser(final Memory memory) {
         this.memory = memory;
+        depth = 0;
     }
 
-    public boolean checkLine(final String text){
-        return isFormInt(text) || isFormChar(text);
+    public boolean checkLine(final String text) {
+        return isFormFunction(text) || isBracketCloser(text) || isFormInt(text) || isFormChar(text);
     }
+
     public void parseLine(final String text) {
         memory.addData(isFormInt(text) ? "INTEGER" : isFormChar(text) ? "CHARACTER" : "NONE");
 
+    }
+
+    private boolean isFormFunction(final String text) {
+        return text.matches("\\s*(int|char)\\s*\\w+\\(\\)\\s*\\{");
+    }
+
+    private boolean isBracketCloser(final String text) {
+        return text.matches("\\s*}");
     }
 
     private boolean isFormInt(final String text) {

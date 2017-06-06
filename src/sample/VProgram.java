@@ -37,7 +37,7 @@ public class VProgram {
         try {
             Files.readAllLines(Paths.get("src/input/" + path)).stream().filter(s -> !s.isEmpty()).collect(Collectors.toList()).forEach(l -> {
                 final Label label = new Label(l);
-                label.setStyle(box.getChildren().size() == 0 ? focusedStyle : unfocusedStyle);
+                label.setStyle(unfocusedStyle);
                 label.prefWidthProperty().bind(box.prefWidthProperty());
                 box.getChildren().add(label);
             });
@@ -45,19 +45,24 @@ public class VProgram {
             e.printStackTrace();
         }
         this.box = box;
-        compilationCheck();
+        if (compilationCheck()) return;
+        box.getChildren().get(focused).setStyle(focusedStyle);
         readInput();
+
     }
 
-    private void compilationCheck() {
+    private boolean compilationCheck() {
+        boolean errorsFound = false;
         for (final Node n : box.getChildren()) {
             final Label current = (Label) n;
             if (parser.checkLine(current.getText())) continue;
             current.setStyle("-fx-background-color: indianred; -fx-border-color: black");
             if (next.isDisabled()) continue;
-            next.setDisable(true);
-//            throw new Error("Compilation error - " + current.getText());
+            next.setDisable(errorsFound = true);
+            stepNotifier.setText("Compilation error - Errors highlighted above");
+            stepNotifier.setVisible(true);
         }
+        return errorsFound;
     }
 
     public void step() {
@@ -68,6 +73,6 @@ public class VProgram {
     }
 
     private void readInput() {
-
+        parser.parseLine(((Label)box.getChildren().get(focused)).getText());
     }
 }
