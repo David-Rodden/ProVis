@@ -38,4 +38,7 @@ public class DeclParser {
     private boolean isFormChar(final String text) {
         return text.matches("\\s*char\\s*\\w+\\s*=\\s*'.'\\s*;");
     }
+    private boolean isFormArray(final String text){
+        return text.matches("\\s*\\[]\\s*");
+    }
 }
