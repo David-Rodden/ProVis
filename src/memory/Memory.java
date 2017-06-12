@@ -1,6 +1,5 @@
 package memory;
 
-import com.sun.deploy.util.StringUtils;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Path;
 

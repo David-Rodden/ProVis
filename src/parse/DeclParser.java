@@ -19,9 +19,19 @@ public class DeclParser {
     }
 
     public void parseLine(final String text) {
-        if (isFormInt(text)) memory.addInteger(32);
+        if (isFormInt(text)) memory.addInteger(extractInt(text));
         else if (isFormChar(text)) memory.addCharacter('c');
         else memory.addData(text);
+    }
+
+
+    private int extractInt(final String text) {
+        System.out.println(Integer.parseInt(text.split("=")[1].replaceAll("\\D", "")));
+        return Integer.parseInt(text.split("=")[1].replaceAll("\\D", ""));
+    }
+
+    private char extractChar(final String text) {
+        return 'c';
     }
 
     private boolean isFormFunction(final String text) {
