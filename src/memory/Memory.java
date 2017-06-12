@@ -1,5 +1,6 @@
 package memory;
 
+import com.sun.deploy.util.StringUtils;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Path;
 
@@ -18,6 +19,14 @@ public class Memory {
     }
 
     public void addData(final String data) {
-        stack.push(data, heap.alloc(Integer.toString((int) (new Random().nextFloat() * 1000000), 16).toUpperCase()));
+        stack.push(data, heap.alloc(Integer.toString((int) (new Random().nextFloat() * 1000000), 16).toUpperCase(), 1));
+    }
+
+    public void addInteger(final int data) {
+        stack.push("Ref to Int", heap.alloc(String.format("%16s", Integer.toBinaryString(data)).replace(" ", "0"), 4));
+    }
+
+    public void addCharacter(final char data) {
+        stack.push("Ref to Char", heap.alloc(String.valueOf(data), 1));
     }
 }

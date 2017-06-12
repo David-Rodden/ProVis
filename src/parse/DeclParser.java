@@ -19,8 +19,9 @@ public class DeclParser {
     }
 
     public void parseLine(final String text) {
-        memory.addData(isFormInt(text) ? "INTEGER" : isFormChar(text) ? "CHARACTER" : "NONE");
-
+        if (isFormInt(text)) memory.addInteger(32);
+        else if (isFormChar(text)) memory.addCharacter('c');
+        else memory.addData(text);
     }
 
     private boolean isFormFunction(final String text) {
@@ -38,7 +39,8 @@ public class DeclParser {
     private boolean isFormChar(final String text) {
         return text.matches("\\s*char\\s*\\w+\\s*=\\s*'.'\\s*;");
     }
-    private boolean isFormArray(final String text){
+
+    private boolean isFormArray(final String text) {
         return text.matches("\\s*\\[]\\s*");
     }
 }

@@ -1,7 +1,11 @@
 package memory;
 
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+
+import java.util.List;
 
 /**
  * Created by David on 6/2/2017.
@@ -20,11 +24,19 @@ public class VHeap {
         }
     }
 
-    protected Label alloc(final String text) {
-        final Label label = ((Label) box.getChildren().stream().filter(node -> ((Label) node).getText().equals("")).findAny().get());
-        if (label == null) return null;
-        label.setText(text);
-        label.setStyle("-fx-border-color: black;-fx-background-color: #e3a8f4");
-        return label;
+    protected Label alloc(final String text, final int bytes) {
+        final ObservableList<Node> cells = box.getChildren();
+        for (int i = 0, adjacent = 0; i < cells.size(); i++) {
+            if (adjacent == bytes) {
+                final int startCell = i - adjacent;
+                for (int j = startCell; j < i; j++)
+                    ((Label) cells.get(j)).setText(text.substring((j - startCell) * text.length() / bytes, (j - startCell + 1) * text.length() / bytes));
+                return (Label) cells.get(startCell);
+            }
+            final Label currentCell = (Label) cells.get(i);
+            currentCell.setStyle("-fx-border-color: black;-fx-background-color: #e3a8f4");
+            adjacent = currentCell == null || currentCell.getText().equals("") ? adjacent + 1 : 0;
+        }
+        return null;
     }
 }
