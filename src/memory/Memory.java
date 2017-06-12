@@ -23,10 +23,10 @@ public class Memory {
     }
 
     public void addInteger(final int data) {
-        stack.push("Ref to Int", heap.alloc(String.format("%16s", Integer.toBinaryString(data)).replace(" ", "0"), 4));
+        stack.push("Ref to Int", heap.alloc(String.format("%32s", Integer.toBinaryString(data)).replace(" ", "0"), 4));
     }
 
     public void addCharacter(final char data) {
-        stack.push("Ref to Char", heap.alloc(String.valueOf(data), 1));
+        stack.push("Ref to Char", heap.alloc(String.format("%8s", Integer.toBinaryString(data)).replace(" ", "0"), 1));
     }
 }

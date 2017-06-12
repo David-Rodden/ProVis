@@ -3,4 +3,7 @@ int main(){
     int x = 0;
     char ccc = '3';
     char sss = 'e';
+    int s = 5;
+    int y = 5;
+    int y = 3;
 }

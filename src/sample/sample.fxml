@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -18,7 +19,10 @@
                </font></Label>
             <ScrollPane prefHeight="290.0" prefViewportHeight="232.0" prefViewportWidth="100.0" prefWidth="173.0">
                <content>
-                  <VBox fx:id="programBox" prefHeight="284.0" prefWidth="217.0" style="-fx-border-color: black; -fx-background-color: lightgrey;" />
+                  <VBox fx:id="programBox" prefHeight="284.0" prefWidth="217.0" style="-fx-border-color: black; -fx-background-color: lightgrey;">
+                     <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </padding></VBox>
                </content>
             </ScrollPane>
          </children>
@@ -28,7 +32,10 @@
             <Label fx:id="stackLabel" contentDisplay="TOP" style="-fx-font-size: 20;" text="Stack" />
             <ScrollPane prefHeight="290.0" prefViewportHeight="232.0" prefViewportWidth="100.0" prefWidth="173.0">
                <content>
-                  <VBox fx:id="stackBox" alignment="BOTTOM_LEFT" prefHeight="284.0" prefWidth="149.0" style="-fx-border-color: black; -fx-background-color: lightgrey;" />
+                  <VBox fx:id="stackBox" alignment="BOTTOM_LEFT" prefHeight="284.0" prefWidth="149.0" style="-fx-border-color: black; -fx-background-color: lightgrey;">
+                     <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </padding></VBox>
                </content>
             </ScrollPane>
          </children>
@@ -38,7 +45,10 @@
             <Label fx:id="heapLabel" style="-fx-font-size: 20;" text="Heap" />
             <ScrollPane prefHeight="286.0" prefViewportHeight="284.0" prefViewportWidth="198.0" prefWidth="174.0">
                <content>
-                  <VBox fx:id="heapBox" prefHeight="284.0" prefWidth="149.0" style="-fx-border-color: black; -fx-background-color: lightgrey;" />
+                  <VBox fx:id="heapBox" prefHeight="284.0" prefWidth="149.0" style="-fx-border-color: black; -fx-background-color: lightgrey;">
+                     <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </padding></VBox>
                </content>
             </ScrollPane>
          </children>
