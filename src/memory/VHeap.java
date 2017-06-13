@@ -5,13 +5,12 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
-import java.util.List;
-
 /**
  * Created by David on 6/2/2017.
  */
 public class VHeap {
     protected static final int HEAP_SIZE = 100;
+    protected static final int INTEGER = 4, CHARACTER = 1;
     private final VBox box;
 
     protected VHeap(final VBox box) {
@@ -24,7 +23,7 @@ public class VHeap {
         }
     }
 
-    protected Label alloc(final String text, final int bytes) {
+    protected Label alloc(String text, final int bytes) {
         final ObservableList<Node> cells = box.getChildren();
         for (int i = 0, adjacent = 0; i < cells.size(); i++) {
             if (adjacent == bytes) {

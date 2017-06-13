@@ -22,10 +22,17 @@ public class Memory {
     }
 
     public void addInteger(final String name, final int data) {
-        stack.push("ref: " + name, heap.alloc(String.format("%32s", Integer.toBinaryString(data)).replace(" ", "0"), 4));
+        stack.push("ref: " + name, heap.alloc(String.format("%32s", Integer.toBinaryString(data)).replace(" ", "0"), VHeap.INTEGER));
     }
 
     public void addCharacter(final String name, final char data) {
-        stack.push("ref: " + name, heap.alloc(String.format("%8s", Integer.toBinaryString(data)).replace(" ", "0"), 1));
+        stack.push("ref: " + name, heap.alloc(String.format("%8s", Integer.toBinaryString(data)).replace(" ", "0"), VHeap.CHARACTER));
+    }
+
+    public void addString(final String name, final String data) {
+        final StringBuilder sb = new StringBuilder();
+        for (final char c : (data + '\0').toCharArray())
+            sb.append(String.format("%8s", Integer.toBinaryString(c)).replace(" ", "0"));
+        stack.push("ref: " + name, heap.alloc(sb.toString(), VHeap.CHARACTER * (data.length() + 1)));
     }
 }
