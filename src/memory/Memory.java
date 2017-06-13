@@ -25,7 +25,7 @@ public class Memory {
         stack.push("ref: " + name, heap.alloc(String.format("%32s", Integer.toBinaryString(data)).replace(" ", "0"), 4));
     }
 
-    public void addCharacter(final char data) {
-        stack.push("Ref to Char", heap.alloc(String.format("%8s", Integer.toBinaryString(data)).replace(" ", "0"), 1));
+    public void addCharacter(final String name, final char data) {
+        stack.push("ref: " + name, heap.alloc(String.format("%8s", Integer.toBinaryString(data)).replace(" ", "0"), 1));
     }
 }

@@ -24,7 +24,7 @@ public class DeclParser {
 
     public void parseLine(final String text) {
         if (isFormInt(text)) memory.addInteger(extractIntName(text), extractInt(text));
-        else if (isFormChar(text)) memory.addCharacter('c');
+        else if (isFormChar(text)) memory.addCharacter(extractCharName(text), extractChar(text));
         else memory.addData(text);
     }
 
@@ -37,8 +37,12 @@ public class DeclParser {
         return Integer.parseInt(text.split("=")[1].replaceAll("\\D", ""));
     }
 
+    private String extractCharName(final String text){
+        final List<String> declParts = Arrays.asList(text.split("=")[0].split("\\s+")).stream().filter(s -> !s.isEmpty()).collect(Collectors.toList());
+        return declParts.get(declParts.size() - 1) + "_char";
+    }
     private char extractChar(final String text) {
-        return 'c';
+        return text.split("'")[1].charAt(0);
     }
 
     private boolean isFormFunction(final String text) {
