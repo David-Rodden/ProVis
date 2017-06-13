@@ -21,8 +21,8 @@ public class Memory {
         stack.push(data, heap.alloc(Integer.toString((int) (new Random().nextFloat() * 1000000), 16).toUpperCase(), 1));
     }
 
-    public void addInteger(final int data) {
-        stack.push("Ref to Int", heap.alloc(String.format("%32s", Integer.toBinaryString(data)).replace(" ", "0"), 4));
+    public void addInteger(final String name, final int data) {
+        stack.push("ref: " + name, heap.alloc(String.format("%32s", Integer.toBinaryString(data)).replace(" ", "0"), 4));
     }
 
     public void addCharacter(final char data) {

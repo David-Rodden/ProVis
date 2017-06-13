@@ -1,4 +1,5 @@
 
 int main(){
-    int x = 890000;
+    int hey = 5000;
+    char hello = 'c';
 }

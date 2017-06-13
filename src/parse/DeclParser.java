@@ -2,6 +2,10 @@ package parse;
 
 import memory.Memory;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * Created by David on 6/5/2017.
  */
@@ -19,14 +23,17 @@ public class DeclParser {
     }
 
     public void parseLine(final String text) {
-        if (isFormInt(text)) memory.addInteger(extractInt(text));
+        if (isFormInt(text)) memory.addInteger(extractIntName(text), extractInt(text));
         else if (isFormChar(text)) memory.addCharacter('c');
         else memory.addData(text);
     }
 
+    private String extractIntName(final String text) {
+        final List<String> declParts = Arrays.asList(text.split("=")[0].split("\\s+")).stream().filter(s -> !s.isEmpty()).collect(Collectors.toList());
+        return declParts.get(declParts.size() - 1) + "_int";
+    }
 
     private int extractInt(final String text) {
-        System.out.println(Integer.parseInt(text.split("=")[1].replaceAll("\\D", "")));
         return Integer.parseInt(text.split("=")[1].replaceAll("\\D", ""));
     }
 
