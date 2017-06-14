@@ -40,6 +40,13 @@ public class VStack {
         box.getChildren().add(0, label);
     }
 
+    protected void push(final String text){
+        final Label label = new Label(text);
+        label.setStyle("-fx-border-color: black; -fx-background-color: #c1e4ff");
+        label.prefWidthProperty().bind(box.prefWidthProperty());
+        box.getChildren().add(0, label);
+    }
+
     protected void pop() {
         final ObservableList<Node> children = box.getChildren();
         children.remove(0);

@@ -21,6 +21,10 @@ public class Memory {
         stack.push(data, heap.alloc(Integer.toString((int) (new Random().nextFloat() * 1000000), 16).toUpperCase(), 1));
     }
 
+    public void addFunction(final String name) {
+        stack.push("ref: " + name + "_method");
+    }
+
     public void addInteger(final String name, final int data) {
         stack.push("ref: " + name, heap.alloc(String.format("%32s", Integer.toBinaryString(data)).replace(" ", "0"), VHeap.INTEGER));
     }
@@ -29,7 +33,7 @@ public class Memory {
         stack.push("ref: " + name, heap.alloc(String.format("%8s", Integer.toBinaryString(data)).replace(" ", "0"), VHeap.CHARACTER));
     }
 
-    public void addString(final String name, final String data) {
+    public void addCharArray(final String name, final String data) {
         final StringBuilder sb = new StringBuilder();
         for (final char c : (data + '\0').toCharArray())
             sb.append(String.format("%8s", Integer.toBinaryString(c)).replace(" ", "0"));
