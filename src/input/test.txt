@@ -3,5 +3,4 @@ int main(){
     int hey = 5000;
     char hello = 'c';
     char() str = "abc";
-    log(str);
 }
