@@ -1,12 +1,12 @@
-package sample;
+package program;
 
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Path;
-import memory.Memory;
-import parse.DeclParser;
+import program.memory.Memory;
+import program.parse.DeclParser;
 
 import java.io.IOException;
 import java.nio.file.Files;

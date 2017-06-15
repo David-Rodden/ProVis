@@ -1,4 +1,4 @@
-package sample;
+package user_interface;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -6,9 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Path;
+import program.VProgram;
 
 import java.net.URL;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -38,9 +38,5 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         new VProgram(programLabel, programBox, stackBox, heapBox, refPath, stepButton, stepNotifier, "test.txt");
-    }
-
-    public static void main(String[] args) {
-        System.out.println(Arrays.asList(Integer.toString(3472).split("")));
     }
 }

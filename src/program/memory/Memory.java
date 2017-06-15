@@ -1,4 +1,4 @@
-package memory;
+package program.memory;
 
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Path;

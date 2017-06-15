@@ -1,6 +1,5 @@
-package memory;
+package program.memory;
 
-import javafx.beans.binding.StringBinding;
 import javafx.collections.ObservableList;
 import javafx.geometry.Bounds;
 import javafx.scene.Node;

@@ -1,6 +1,6 @@
-package parse;
+package program.parse;
 
-import memory.Memory;
+import program.memory.Memory;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,14 +19,14 @@ public class DeclParser {
     }
 
     public boolean checkLine(final String text) {
-        return isFormFunction(text) || isBracketCloser(text) || isFormInt(text) || isFormChar(text) || isFormString(text);
+        return isFormFunction(text) || isBracketCloser(text) || isFormInt(text) || isFormChar(text) || isFormCharArray(text);
     }
 
     public void parseLine(final String text) {
         if (isFormFunction(text)) extractFunction(text);
         else if (isFormInt(text)) extractInt(text);
         else if (isFormChar(text)) extractChar(text);
-        else if (isFormString(text)) extractString(text);
+        else if (isFormCharArray(text)) extractString(text);
         else memory.addData(text);
     }
 
@@ -69,8 +69,8 @@ public class DeclParser {
         return text.matches("\\s*char\\s*\\w+\\s*=\\s*'.'\\s*;");
     }
 
-    private boolean isFormString(final String text) {
-        return text.matches("\\s*char\\(\\)\\s*\\w+\\s*=\\s*\"\\w*\"\\s*;");
+    private boolean isFormCharArray(final String text) {
+        return text.matches("\\s*char\\(\\)\\s*\\w+\\s*=\\s*\"[\\w\\s_@./#&+-]*\"\\s*;");
     }
 
     private boolean isFormArray(final String text) {

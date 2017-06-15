@@ -1,4 +1,4 @@
-package memory;
+package program.memory;
 
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
