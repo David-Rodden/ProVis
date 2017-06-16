@@ -4,4 +4,5 @@ int main(){
     char hello = 'c';
     char() str = "abc";
     char() str2 = "ajkjk skdjf d";
+    str = N;
 }

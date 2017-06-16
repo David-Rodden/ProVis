@@ -38,4 +38,10 @@ public class VHeap {
         }
         return null;
     }
+
+    protected void free(String text, int bytes) {
+        final ObservableList<Node> cells = box.getChildren();
+        for (int i = 0; i < bytes; i++)
+            ((Label) cells.get(i + bytes)).setText("");
+    }
 }

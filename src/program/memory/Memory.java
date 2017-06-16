@@ -39,4 +39,7 @@ public class Memory {
             sb.append(String.format("%8s", Integer.toBinaryString(c)).replace(" ", "0"));
         stack.push("ref: " + name, heap.alloc(sb.toString(), VHeap.CHARACTER * (data.length() + 1)));
     }
+
+    public void freeMemory(final String name){
+    }
 }

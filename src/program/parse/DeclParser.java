@@ -19,8 +19,9 @@ public class DeclParser {
     }
 
     public boolean checkLine(final String text) {
-        return isFormFunction(text) || isBracketCloser(text) || isFormInt(text) || isFormChar(text) || isFormCharArray(text);
+        return isFormFunction(text) || isBracketCloser(text) || isFormInt(text) || isFormChar(text) || isFormCharArray(text) || isNullify(text);
     }
+
 
     public void parseLine(final String text) {
         if (isFormFunction(text)) extractFunction(text);
@@ -53,6 +54,9 @@ public class DeclParser {
         memory.addCharArray(getDeclName(text) + "_char()", text.split("\"")[1]);
     }
 
+    private void nullify(final String text) {
+    }
+
     private boolean isFormFunction(final String text) {
         return text.matches("\\s*(int|char)\\s*\\w+\\(\\)\\s*\\{");
     }
@@ -71,6 +75,10 @@ public class DeclParser {
 
     private boolean isFormCharArray(final String text) {
         return text.matches("\\s*char\\(\\)\\s*\\w+\\s*=\\s*\"[\\w\\s_@./#&+-]*\"\\s*;");
+    }
+
+    private boolean isNullify(String text) {
+        return text.matches("\\s*\\w+\\s*=\\s*N\\s*;");
     }
 
     private boolean isFormArray(final String text) {
